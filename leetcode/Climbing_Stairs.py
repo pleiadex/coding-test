@@ -3,12 +3,9 @@ class Solution:
       if n <= 2:
         return n
       
-      twoStepBehind = 1
-      oneStepBehind = 2
+      steps = [0, 1, 2] + [0 for _ in range(n - 2)]
 
-      for _ in range(n - 2):
-        curr = oneStepBehind + twoStepBehind
-        twoStepBehind =  oneStepBehind
-        oneStepBehind = curr
+      for i in range(2, n):
+        steps[i + 1] = steps[i] + steps[i - 1]
 
-      return oneStepBehind
+      return steps[n]
