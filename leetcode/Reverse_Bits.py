@@ -2,9 +2,9 @@ class Solution:
     def reverseBits(self, n: int) -> int:
         res = 0
 
-        for exp in range(31, -1, -1):
-          bit = n % 2
-          n = n // 2
-          res += 2 ** exp * bit
+        for i in range(32):
+          # get each bit from LSD
+          bit = n >> i & 1 
+          res = (bit << (31 - i)) | res
 
         return res
