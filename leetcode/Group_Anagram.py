@@ -6,14 +6,17 @@ class Solution:
         res = []
 
         for s in strs:
-          key = ''.join(sorted(s))
-          hmap[key].append(s)
+          count = [0] * 26
+          for ch in s:
+            count[ord(ch) - ord('a')] += 1
+          
+          hmap[tuple(count)].append(s)
         
         for key in hmap:
           res.append(hmap[key])
 
 
-        # sort + linear traversal => Time O(klogk + n)
-        #                         => Mem  O(n)
+        # count by each word + linear traversal => Time O(k * n)
+        #                                       => Mem  O(n)
 
         return res
