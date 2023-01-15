@@ -14,7 +14,8 @@ class Solution:
         
         for key in hmap:
           res.append(hmap[key])
-        
+        return res
+
         # return hmap.values()
 
         # count by each word + linear traversal => Time O(k * n * 26) ; The reason it is multiplied by 26 is Python hashes each tuple element and do Xor with the previous result.
