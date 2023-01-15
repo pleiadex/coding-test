@@ -19,4 +19,4 @@ class Solution:
         # count by each word + linear traversal => Time O(k * n)
         #                                       => Mem  O(n)
 
-        return res
+        # return hmap.values()
