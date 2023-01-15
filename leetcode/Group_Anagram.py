@@ -12,4 +12,8 @@ class Solution:
         for key in hmap:
           res.append(hmap[key])
 
+
+        # sort + linear traversal => Time O(klogk + n)
+        #                         => Mem  O(n)
+
         return res
