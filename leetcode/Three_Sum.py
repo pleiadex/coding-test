@@ -14,18 +14,18 @@ class Solution:
             l, r = i + 1, len(nums) - 1
             while l < r:
                 curr = nums[l] + nums[r]
-                if curr == target:
+                if curr < target:
+                    l += 1
+                elif curr > target:
+                    r += -1
+                else:
                     # add the answer combination
                     res.append([nums[i], nums[l], nums[r]])
-                if curr <= target:
+
                     # increment l until it points a different value
+                    # Note: You do not need to decrement r since the different value of l will guarantee for r to be different from the previous value
                     l += 1
                     while l < len(nums) and nums[l - 1] == nums[l]:
                         l += 1
-                elif curr >= target:
-                    # decrement r until it points a different value
-                    r += -1
-                    while r >= i and nums[r] == nums[r + 1]:
-                        r += -1
 
         return res
