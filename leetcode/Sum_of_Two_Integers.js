@@ -12,5 +12,5 @@ var getSum = function(a, b) {
   return a;
 };
 
-// python has 
+// I used JS since Python uses a variable number of bits to store integers
 exports.getSum = getSum;
