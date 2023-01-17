@@ -3,32 +3,20 @@ class Solution:
     def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
 
       res = []
-      i = 0
-      while i < len(intervals):
-        if intervals[i][0] > newInterval[0] or self.isOverlapped(intervals[i], newInterval):
-          break
-        res.append(intervals[i])
-        i += 1
-      
-      res.append(newInterval)
 
-      while i < len(intervals):
-        if self.isOverlapped(intervals[i], res[-1]):
-          res[-1] = self.merge(intervals[i], res[-1])
-        else:
+      for i in range(len(intervals)):
+        # when newInterval is left to the rest of intervals
+        if intervals[i][0] > newInterval[1]:
+          res.append(newInterval)
+          return res + intervals[i:]
+        
+        # when newInterval is right to the current interval
+        elif intervals[i][1] < newInterval[0]:
           res.append(intervals[i])
         
-        i += 1
-
+        # merge them when newInterval and the current interval have a overlapping portion.
+        else:
+          newInterval = [min(intervals[i][0], newInterval[0]), max(intervals[i][1], newInterval[1])]
+      
+      res.append(newInterval)
       return res
-
-
-    def isOverlapped(self, iv1, iv2):
-      if iv1[1] < iv2[0]:
-        return False
-      if iv1[0] > iv2[1]:
-        return False
-      return True
-
-    def merge(self, iv1, iv2):
-      return [min(iv1[0], iv2[0]), max(iv1[1], iv2[1])]
