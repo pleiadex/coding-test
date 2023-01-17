@@ -13,6 +13,8 @@ class Solution:
         # overlap occurs
         if curr[0] < prev[1]:
           res += 1  
+
+          # remove only if the previous interval overlaps the entire current interval
           if curr[1] > prev[1]:
             continue
         prev = curr
