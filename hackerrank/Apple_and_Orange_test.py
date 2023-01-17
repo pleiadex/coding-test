@@ -10,7 +10,7 @@ class TestCase(unittest.TestCase):
     ]
 
   @patch('sys.stdout', new_callable = StringIO)
-  def test_count_apple_and_orange(self, stdout):
+  def test_count_apples_and_oranges(self, stdout):
 
     for tc in self.testcases:
       countApplesAndOranges(*tc[0])
