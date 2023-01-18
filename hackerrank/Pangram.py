@@ -14,7 +14,7 @@ import sys
 #
 
 def pangrams(s):
-    return 'pangram' if len(set(s) - set(' ')) == 26 else 'not pangram'
+    return 'pangram' if len(set(s.lower()) - set(' ')) == 26 else 'not pangram'
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
