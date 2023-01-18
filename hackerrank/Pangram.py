@@ -14,16 +14,7 @@ import sys
 #
 
 def pangrams(s):
-    count = [0] * 26
-    for ch in s:
-        if ch.isalpha():  
-            count[ord(ch.lower()) - ord('a')] += 1
-    
-    for cnt in count:
-        if cnt == 0:
-            return 'not pangram'
-    return 'pangram'
-    
+    return 'pangram' if len(set(s) - set(' ')) == 26 else 'not pangram'
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
