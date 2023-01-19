@@ -9,7 +9,7 @@ class TestCase(unittest.TestCase):
         ([1,None,2], 2),
         ([3,9,20,None,None,15,7, None, 1], 4)
     ]
-  def test_insert(self):
+  def test_maxDepth(self):
     solution = Solution()
 
     for testcase in self.testcases:
