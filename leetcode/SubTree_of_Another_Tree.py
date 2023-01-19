@@ -8,12 +8,17 @@ from typing import Optional
 from utils.Tree_Utils import TreeNode
 class Solution:
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
-      res = self.isSameTree(root, subRoot)
-      if res:
-        return res
-      if not res and root:
-        return self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
-      return False
+      # the base cases
+      if not subRoot:
+        return True
+
+      if not root:
+        return False
+
+      if self.isSameTree(root, subRoot):
+        return True
+
+      return self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
        
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
       
