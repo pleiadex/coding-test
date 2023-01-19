@@ -1,6 +1,6 @@
 import unittest
 from Inverse_Binary_Tree import Solution
-from Tree_Utils import convertListToTree, convertTreetoList
+from utils.Tree_Utils import convertListToTree, convertTreetoList
 
 class TestCase(unittest.TestCase):
   def setUp(self):
