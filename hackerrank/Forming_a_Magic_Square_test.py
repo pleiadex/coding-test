@@ -9,7 +9,7 @@ class TestCase(unittest.TestCase):
       [[[4, 4, 7], [3, 1, 5], [1, 7, 9]], 20]
     ]
 
-  def test_weighted_uniform_strings(self):
+  def test_forming_magic_square(self):
     for tc in self.testcases:
       self.assertEqual(formingMagicSquare(tc[0]), tc[1])
 
