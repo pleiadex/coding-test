@@ -23,8 +23,8 @@ def convertListToTree(treeList: List) -> TreeNode:
       leftValue = todoQueue.popleft() if todoQueue else None
       rightValue = todoQueue.popleft() if todoQueue else None
 
-      leftNode  = TreeNode(leftValue) if leftValue else None
-      rightNode = TreeNode(rightValue) if rightValue else None
+      leftNode  = TreeNode(leftValue) if leftValue != None else None
+      rightNode = TreeNode(rightValue) if rightValue != None else None
       node.left  = leftNode
       node.right = rightNode
 
