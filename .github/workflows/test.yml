@@ -8,7 +8,7 @@ jobs:
     - uses: actions/checkout@v3
     
     - name: Leetcode
-      run : python leetcode/*test.py
+      run : python -m unittest discover -s leetcode -p "*_test.py"
       
     - name: HackerRank
-      run : python hackerrank/*test.py
+      run : python -m unittest discover -s hackerrank -p "*_test.py"
