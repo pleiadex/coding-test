@@ -1,21 +1,20 @@
 from typing import List
-
+from collections import deque
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
       def visit(i, j):
-        # out of range
-        # if i < 0 or len(grid) <= i or j < 0 or len(grid[0]) <= j:
-        if not i in range(len(grid)) or not j in range(len(grid[0])):
-          return
+        queue = deque()
+        queue.append((i, j))
 
-        if grid[i][j] == '0':
-          return
-
-        grid[i][j] = '0'
-        visit(i + 1, j)
-        visit(i - 1, j)
-        visit(i, j + 1)
-        visit(i, j - 1)
+        while queue: 
+          r, c = queue.popleft()
+          
+          if r in range(len(grid)) and c in range(len(grid[0])) and grid[r][c] == '1':
+            grid[r][c] = '0'
+            queue.append((r + 1, c))
+            queue.append((r - 1, c))
+            queue.append((r, c + 1))
+            queue.append((r, c - 1))
       
       res = 0
       for i in range(len(grid)):
