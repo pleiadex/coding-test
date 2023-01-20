@@ -1,0 +1,14 @@
+name: String
+on: [pull_request, push]
+jobs:
+  test:
+    name: Run all the test files
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Leetcode
+      run : python leetcode/*test.py
+      
+    - name: HackerRank
+      run : python hackerrank/*test.py
