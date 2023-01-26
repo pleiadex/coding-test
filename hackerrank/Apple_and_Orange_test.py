@@ -14,7 +14,7 @@ class TestCase(unittest.TestCase):
 
     for tc in self.testcases:
       countApplesAndOranges(*tc[0])
-    self.assertEqual(stdout.getvalue(), tc[1])
+      self.assertEqual(stdout.getvalue(), tc[1])
 
 if __name__ == '__main__':
     unittest.main()
