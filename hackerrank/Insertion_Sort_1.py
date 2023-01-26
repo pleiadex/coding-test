@@ -16,19 +16,16 @@ import sys
     
 def insertionSort1(n, arr):
     # Write your code here
-    curr = arr[n - 1]
+    key = arr[-1]
+    i = n - 1
 
-    for i in range(n - 2, -2, -1):
-        if i == -1:
-            arr[0] = curr
-            print(*arr)
-        elif arr[i] > curr:
-            arr[i + 1] = arr[i]
-            print(*arr)
-        else:
-            arr[i + 1] = curr
-            print(*arr)         
-            break
+    while i > 0 and arr[i - 1] > key:
+      arr[i] = arr[i - 1]
+      i -= 1
+      print(*arr)
+    
+    arr[i] = key
+    print(*arr)  
 
     # Debug
     return arr
