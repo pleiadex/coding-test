@@ -5,7 +5,7 @@ class ListNode:
         self.val = val
         self.next = next
 
-def convertListToLinkedList(nums: List, pos=-1) -> Optional[ListNode]:
+def convertListToLinkedList(nums: List, pos:int = -1) -> Optional[ListNode]:
     head = ListNode()
     curr = head
     for n in nums:
