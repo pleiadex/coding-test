@@ -22,7 +22,7 @@ def insertionSort1(n, arr):
     while i > 0 and arr[i - 1] > key:
       arr[i] = arr[i - 1]
       i -= 1
-      print(*arr)
+      # print(*arr)
     
     arr[i] = key
     # print(*arr)  
