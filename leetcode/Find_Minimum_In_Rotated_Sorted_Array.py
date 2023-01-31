@@ -11,10 +11,9 @@ class Solution:
                 mid = (l + r) // 2
                 res = min(res, nums[mid])
 
-                if nums[l] < nums[mid]:
+                # better to compare to nums[r] since l equals to mid when the length is two.
+                if nums[mid] > nums[r]:
                     l = mid + 1
-                elif nums[l] > nums[mid]:
-                    r = mid - 1
                 else:
-                    return min(res, nums[l], nums[r])
+                    r = mid - 1
         return res
