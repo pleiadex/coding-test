@@ -25,7 +25,7 @@ def insertionSort1(n, arr):
       print(*arr)
     
     arr[i] = key
-    print(*arr)  
+    # print(*arr)  
 
     # Debug
     return arr
