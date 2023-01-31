@@ -5,17 +5,25 @@ class ListNode:
         self.val = val
         self.next = next
 
-def convertListToLinkedList(nums: List) -> Optional[ListNode]:
-    if not nums:
-        return None
+def convertListToLinkedList(nums: List, pos=-1) -> Optional[ListNode]:
+    head = ListNode()
+    curr = head
+    for n in nums:
+        curr.next = ListNode(n)
+        curr = curr.next
     
-    prev = ListNode(nums[-1])
-    for n in nums[-2::-1]:
-        curr = ListNode(n)
-        curr.next = prev
-        prev = curr
-    
-    return prev
+    if pos < 0:
+        return head.next
+
+    # generate a cycle
+    joint = head
+    while 0 <= pos and joint: 
+        joint = joint.next
+        pos -= 1
+
+    curr.next = joint
+
+    return head.next
 
 def convertLinkedListToList(head: ListNode) -> List[int]: 
     node = head
@@ -25,3 +33,6 @@ def convertLinkedListToList(head: ListNode) -> List[int]:
         node = node.next
 
     return res
+
+
+convertListToLinkedList([1,2], 0)
