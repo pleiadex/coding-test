@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 from collections import deque
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -6,7 +6,7 @@ class TreeNode:
         self.left = left
         self.right = right
 
-def convertListToTree(treeList: List) -> TreeNode:
+def convertListToTree(treeList: List) -> Optional[TreeNode]:
     if not treeList:
       return None
 
